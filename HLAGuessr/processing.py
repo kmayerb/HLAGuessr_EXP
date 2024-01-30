@@ -28,7 +28,7 @@ class Processing(object):
         #self.delimiter = delimiter
         self.chain=chain
         self.delimiter = delimiter
-        self.data_test = self.load_test_data(self.alpha_input,self.beta_input,self.delimiter)
+        self.data_test = self.load_test_data(self.alpha_input,self.beta_input)
         
     def load_test_data(self,alpha_files=None,beta_files=None):
 
