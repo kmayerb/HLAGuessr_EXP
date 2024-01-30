@@ -36,12 +36,12 @@ class Processing(object):
         beta = pd.DataFrame()
 
         if alpha_files is not None:
-            alpha = pd.read_csv(alpha_files,delimiter=self.delimeter)
+            alpha = pd.read_csv(alpha_files,delimiter=self.delimiter)
             format_alpha = self.format_dataframe(alpha)
             format_alpha['chain'] = 'alpha'
             
         if beta_files is not None:
-            beta = pd.read_csv(beta_files,delimiter=self.delimeter)
+            beta = pd.read_csv(beta_files,delimiter=self.delimiter)
             format_beta = self.format_dataframe(beta)
             format_beta['chain'] = 'beta'
         
