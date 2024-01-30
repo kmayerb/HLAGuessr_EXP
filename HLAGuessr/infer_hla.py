@@ -38,8 +38,8 @@ def main():
     parser = OptionParser(conflict_handler="resolve")
 
     # input output
-    parser.add_option('-a', '--alpha_infile', dest = 'alpha_infile',metavar='PATH/TO/FILE', help='read in CDR3 alpha sequences and V gene families from PATH/TO/FILE')
-    parser.add_option('-b', '--beta_infile', dest = 'beta_infile',metavar='PATH/TO/FILE', help='read in CDR3 alpha sequences and V gene families from PATH/TO/FILE')
+    parser.add_option('-a', '--alpha_infile', default = None, dest = 'alpha_infile',metavar='PATH/TO/FILE', help='read in CDR3 alpha sequences and V gene families from PATH/TO/FILE')
+    parser.add_option('-b', '--beta_infile',  default = None, dest = 'beta_infile',metavar='PATH/TO/FILE', help='read in CDR3 alpha sequences and V gene families from PATH/TO/FILE')
     parser.add_option('-o', '--outfile', dest = 'outfile_name', metavar='PATH/TO/FILE', help='write HLA probabilities to PATH/TO/FILE')
     
     #delimeters
