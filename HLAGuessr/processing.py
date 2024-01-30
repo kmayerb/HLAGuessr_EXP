@@ -44,8 +44,12 @@ class Processing(object):
             beta = pd.read_csv(beta_files,delimiter='\t')
             format_beta = self.format_dataframe(beta)
             format_beta['chain'] = 'beta'
-
-        big_df = pd.concat([format_alpha,format_beta], ignore_index=True)
+        if alpha_files is None:
+            big_df = format_beta
+        if beta_files is None:
+            big_df = format_alpha
+        else:
+            big_df = pd.concat([format_alpha,format_beta], ignore_index=True)
         big_df.set_index('cdr3+v_family',inplace=True)
         return(big_df)
     
