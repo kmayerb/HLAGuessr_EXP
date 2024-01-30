@@ -47,11 +47,13 @@ class Processing(object):
         
         if alpha_files is None:
             big_df = format_beta
+        else:
+            big_df = pd.concat([format_alpha,format_beta], ignore_index=True)
         if beta_files is None:
             big_df = format_alpha
-        if beta_files is not None adn alpah_files is nont None:
+        else:
             big_df = pd.concat([format_alpha,format_beta], ignore_index=True)
-        
+      
         big_df.set_index('cdr3+v_family',inplace=True)
         return(big_df)
     
