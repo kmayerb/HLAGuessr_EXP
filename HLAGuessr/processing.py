@@ -30,7 +30,7 @@ class Processing(object):
         self.delimiter = delimiter
         self.data_test = self.load_test_data(self.alpha_input,self.beta_input,self.delimiter)
         
-    def load_test_data(self,alpha_files,beta_files,sep):
+    def load_test_data(self,alpha_files=None,beta_files=None,sep):
 
         alpha = pd.DataFrame()
         beta = pd.DataFrame()
@@ -47,9 +47,9 @@ class Processing(object):
         
         if alpha_files is None:
             big_df = format_beta
-        else if beta_files is None:
+        if beta_files is None:
             big_df = format_alpha
-        else:
+        if beta_files is not None adn alpah_files is nont None:
             big_df = pd.concat([format_alpha,format_beta], ignore_index=True)
         
         big_df.set_index('cdr3+v_family',inplace=True)
