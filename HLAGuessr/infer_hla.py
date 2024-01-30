@@ -95,7 +95,22 @@ def main():
             pass #Other string passed as the delimiter.
         
 
-    process = Processing(chain,options.alpha_infile,options.beta_infile,delimiter)
+    if options.alpha_infile is None:
+        process = Processing(chain = chain, 
+                             alpha_input=None,
+                             beta_input=options.beta_infile,
+                             delimiter=chain)
+    if options.beta_infile is None:
+        process = Processing(chain = chain, 
+                             alpha_input=options.alpha_infile,
+                             beta_input=None,
+                             delimiter=chain)
+    else:
+        process = Processing(chain = chain, 
+                     alpha_input=options.alpha_infile,
+                     beta_input=options.beta_infile,
+                     delimiter=chain)
+
     patients = list(set(process.data_test['Patient']))
     
     hla_set = []
