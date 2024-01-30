@@ -25,23 +25,23 @@ class Processing(object):
         #self.max_length=max_length
         self.alpha_input = alpha_input
         self.beta_input = beta_input
-        self.delimiter = delimiter
+        #self.delimiter = delimiter
         self.chain=chain
         self.delimiter = delimiter
         self.data_test = self.load_test_data(self.alpha_input,self.beta_input,self.delimiter)
         
-    def load_test_data(self,alpha_files=None,beta_files=None,sep):
+    def load_test_data(self,alpha_files=None,beta_files=None):
 
         alpha = pd.DataFrame()
         beta = pd.DataFrame()
 
         if alpha_files is not None:
-            alpha = pd.read_csv(alpha_files,delimiter=sep)
+            alpha = pd.read_csv(alpha_files,delimiter=self.delimeter)
             format_alpha = self.format_dataframe(alpha)
             format_alpha['chain'] = 'alpha'
             
         if beta_files is not None:
-            beta = pd.read_csv(beta_files,delimiter='\t')
+            beta = pd.read_csv(beta_files,delimiter=self.delimeter)
             format_beta = self.format_dataframe(beta)
             format_beta['chain'] = 'beta'
         
