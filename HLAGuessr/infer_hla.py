@@ -100,12 +100,17 @@ def main():
                              alpha_input=None,
                              beta_input=options.beta_infile,
                              delimiter=chain)
+    else:
+        process = Processing(chain = chain, 
+                     alpha_input=options.alpha_infile,
+                     beta_input=options.beta_infile,
+                     delimiter=chain)
     if options.beta_infile is None:
         process = Processing(chain = chain, 
                              alpha_input=options.alpha_infile,
                              beta_input=None,
                              delimiter=chain)
-    if options.beta_infile is not None and options.alpha_infile is not None:
+    else:
         process = Processing(chain = chain, 
                      alpha_input=options.alpha_infile,
                      beta_input=options.beta_infile,
